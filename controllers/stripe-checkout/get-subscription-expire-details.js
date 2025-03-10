@@ -9,10 +9,10 @@ const getSubscriptionExpireDetails = async (req, res) => {
         subscriptionExpiresOn: user?.subscriptionExpiresOn,
       });
     }
-    return res.status(200).send({ subscriptionExpiresOn: new Date() });
+    return res.status(200).send({ subscriptionExpiresOn: new Date() - 30 * 24 * 60 * 60 * 1000 });
   } catch (err) {
     console.log(err.message);
-    res.status(200).send({ subscriptionExpiresOn: new Date() });
+    res.status(200).send({ subscriptionExpiresOn: new Date() - 30 * 24 * 60 * 60 * 1000 });
   }
 };
 
